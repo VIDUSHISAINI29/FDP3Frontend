@@ -12,8 +12,19 @@ const router = createRouter({
                path: "/home",
                name: "home",
                component: () => import("@/pages/Home/Home.vue"),
+               children: [
+                
+                  {
+                     path:":uri",
+                     name: "details",
+                     component: () => import("@/pages/Home/PlayerInfo.vue"),
+                     props: true,
+                  }
+               ],
+             
            
             },
+          
          ],
       },
    ],

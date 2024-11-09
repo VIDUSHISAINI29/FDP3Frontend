@@ -15,9 +15,19 @@ export default defineConfig({
       }
     })
   ],
+  server: {
+    proxy: {
+       '/cdn-image': {
+          target: 'https://cdn.sofifa.com',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/cdn-image/, '')
+       }
+    }
+ },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   }
 })
+// vite.config.js
