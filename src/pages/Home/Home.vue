@@ -3,7 +3,7 @@
 import PlayersData from '@/components/PlayersData.vue'
 import Navbar from '@/layout/Navbar.vue'
 import {useRoute} from "vue-router";
-import PlayerInfo from './PlayerInfo.vue'
+import PlayerInfo from './Details.vue'
 
 const route = useRoute();
 
@@ -38,7 +38,7 @@ async function loadData(){
 
 <template>
  <div v-if="!route.params.uri" class="tw-bg-gradient-to-br tw-select-none tw-from-[#c0eefd] tw-via-[#c1c1fd] tw-to-[#efcad1]   tw-h-[120vh] tw-flex tw-flex-col tw-items-center">
-   <Navbar />
+  
 
   <PlayersData   />
 

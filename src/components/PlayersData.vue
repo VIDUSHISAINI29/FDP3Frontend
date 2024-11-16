@@ -3,7 +3,7 @@ import { onMounted, ref, watch } from "vue";
 import DatePicker from 'primevue/datepicker';
 import dayjs from "dayjs"
 import axios from "axios";
-import PlayerInfo from '@/pages/Home/PlayerInfo.vue'
+import PlayerInfo from '@/pages/Home/Details.vue'
 const playersList = ref(null);
 const playersArray = ref(null);
 const date = ref(null);

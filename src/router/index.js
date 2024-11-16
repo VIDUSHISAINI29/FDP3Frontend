@@ -3,6 +3,10 @@ import { createRouter, createWebHistory } from "vue-router";
 const router = createRouter({
    history: createWebHistory(import.meta.env.BASE_URL),
    routes: [
+      {
+         path: "/",
+         redirect: "home"
+      },
      
       {
          path: "/",
@@ -17,7 +21,7 @@ const router = createRouter({
                   {
                      path:":uri",
                      name: "details",
-                     component: () => import("@/pages/Home/PlayerInfo.vue"),
+                     component: () => import("@/pages/Home/Details.vue"),
                      props: true,
                   }
                ],

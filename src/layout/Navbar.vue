@@ -9,8 +9,8 @@
       <img class="tw-w-10 tw-h-10    " src="/Images/football.webp" alt="">   
       </div>
         <div class=" tw-flex tw-gap-10  ">
-            <span class="tw-cursor-pointer tw-font-semibold tw-flex tw-text-[#000] tw-border-b-[3px] tw-border-black tw-items-center tw-justify-center tw-px-1 "> Home</span>
-            <span class="tw-cursor-pointer tw-flex tw-text-[#000] tw-border-b-[3px] tw-border-black tw-items-center tw-justify-center  tw-px-1 ">Details</span>
+            <router-link to="/home" class="tw-cursor-pointer tw-font-semibold tw-flex tw-text-[#000] tw-border-b-[3px] tw-border-black tw-items-center tw-justify-center tw-px-1 "> Home</router-link>
+            <router-link to="/details" class="tw-cursor-pointer tw-flex tw-text-[#000] tw-border-b-[3px] tw-border-black tw-items-center tw-justify-center  tw-px-1 ">Details</router-link>
         </div>
         <div class="tw-w-20 tw-flex tw-text-[#fff] tw-items-center tw-justify-center tw-rounded-md tw-p-1 tw-bg-black"><span class="tw-cursor-pointer">Logout</span></div>
       </div>

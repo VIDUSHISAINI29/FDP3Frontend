@@ -1,5 +1,6 @@
 <script setup>
 import {onMounted, ref} from "vue"
+import Navbar from '@/layout/Navbar.vue'
 const props =  defineProps({
     uri:String
 })
@@ -43,6 +44,9 @@ async function loadData(){
 
 <template>
     <div class="tw-bg-gradient-to-br tw-select-none tw-from-[#c0eefd] tw-via-[#c1c1fd] tw-to-[#efcad1]  tw-w-full tw-h-screen tw-p-1 tw-flex tw-pt-20 tw-flex-col tw-items-center">
+
+      
+
         <div class="tw-w-[800px]  tw-p-1 tw-flex tw-justify-center">
             <div class=" tw-p-1 tw-w-[300px] tw-text-base tw-gap-2 tw-text-rose-800 tw-font-semibold tw-flex tw-flex-col ">
                     <span><span class="tw-text-black">Player ID :</span> {{ playersArray.ID }}</span>
