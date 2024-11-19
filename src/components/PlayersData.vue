@@ -4,11 +4,16 @@ import DatePicker from 'primevue/datepicker';
 import dayjs from "dayjs"
 import axios from "axios";
 import PlayerInfo from '@/pages/Home/Details.vue'
+import {useGlobalStore} from'@/stores/global.js'
+const global = useGlobalStore();
 const playersList = ref(null);
 const playersArray = ref(null);
-const date = ref(null);
+const date = ref('2017');
 const year = ref('2017');
 let number = '17'
+const minDate = ref(new Date('2017'));
+const maxDate = ref(new Date('2022'));
+
 
 const fetchPlayersData = async(url) => {
    try {
@@ -22,7 +27,8 @@ watch(date, async() => {
    
    year.value = date.value.getFullYear().toString()
    number = year.value.slice(2,4) 
-   console.log('date just is ',number);
+   
+   // console.log('date just is ',number);
    await loadData()
 })
 async function loadData(){
@@ -31,13 +37,17 @@ async function loadData(){
    //  playersList.value = await fetchPlayersData(`${import.meta.env.VITE_BACKEND_URL}players-data-17`)
    //  console.log('Players List in Players Data = ', playersList.value);
 console.log('trut ',number);
+global.yearNumber = number;
+console.log('i am global number in players Data', global.yearNumber);
+
 
     playersList.value = await fetchPlayersData(`${import.meta.env.VITE_BACKEND_URL}players-data-${number}`)
-    console.log('Players List in Players Data = ', playersList.value);
+   //  console.log('Players List in Players Data = ', playersList.value);
 
 }
  onMounted(async() => {
     await loadData()
+
  })
 
 </script>
@@ -46,7 +56,7 @@ console.log('trut ',number);
         <div class=" tw-w-11/12 tw-p-1 tw-flex tw-flex-col tw-items-center">
         <div class="tw-my-3 tw-flex ">
          <span class="tw-text-blue-950 tw-font-bold tw-p-1">Select Year :</span>
-         <DatePicker v-model="date" view="year" dateFormat="yy" />
+         <DatePicker v-model="date" :minDate="minDate" :maxDate="maxDate" view="year" dateFormat="yy" />
         </div>
         <div class="tw-w-4/5 tw-my-5 tw-bg-white tw-py-2 tw-rounded-md tw-flex tw-justify-center"><span class="tw-text-rose-700 tw-font-semibold">Table of FIFA Players of the Year {{ year }}</span></div>
          <div class="header tw-w-4/5 tw-border-blue-950   tw-border-2 tw-text-blue-950  tw-flex tw-justify-evenly">

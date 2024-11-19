@@ -4,7 +4,11 @@ import PlayersData from '@/components/PlayersData.vue'
 import Navbar from '@/layout/Navbar.vue'
 import {useRoute} from "vue-router";
 import PlayerInfo from './Details.vue'
-
+import {useGlobalStore} from'@/stores/global.js'
+const global = useGlobalStore();
+const date = ref(null);
+const year = ref('2017');
+let number = '17'
 const route = useRoute();
 
 
@@ -13,6 +17,14 @@ import { onMounted, ref, watch } from "vue";
 import axios from "axios";
 const playersList = ref(null);
 const playersArray = ref(null);
+
+watch(date, async() => {
+   console.log('i am global number in home', global.yearNumber);
+   
+   year.value = date.value.getFullYear().toString()
+   // console.log('date just is ',number);
+   await loadData()
+})
 
 const fetchPlayersData = async(url) => {
    try {
@@ -25,11 +37,17 @@ const fetchPlayersData = async(url) => {
 
 async function loadData(){
    //  playersList.value = await fetchPlayersData(`${import.meta.env.VITE_BACKEND_URL}players-data-17`)
-    playersList.value = await fetchPlayersData(`${import.meta.env.VITE_BACKEND_URL}players-data-18`)
+   console.log('in load data in home number is', number);
+   number = global.yearNumber 
+   console.log('i am global number in home', global.yearNumber);
+
+   
+    playersList.value = await fetchPlayersData(`${import.meta.env.VITE_BACKEND_URL}players-data-${number}`)
     // console.log('Players List = ', playersList.value);
     
 
 }
+
  onMounted(async() => {
     await loadData()
  })
