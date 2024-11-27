@@ -68,7 +68,7 @@ async function loadData(){
       
 
         <div class="tw-w-[800px]  tw-p-1 tw-flex tw-justify-center">
-            <div class=" tw-p-5 tw-w-[65%] tw-text-lg tw-rounded-3xl tw-gap-2 tw-text-cyan-300 tw-bg-black tw-opacity-50 tw-font-semibold tw-flex tw-flex-col ">
+            <div class=" tw-p-5 tw-w-[80%] tw-text-lg tw-rounded-3xl tw-gap-2 tw-text-cyan-300 tw-bg-black tw-opacity-50 tw-font-semibold tw-flex tw-flex-col ">
 <div class="tw-flex ">
     <span class="tw-text-white tw-w-52">Player ID </span><span class="tw-text-white tw-w-20">:</span> <span>{{ playersArray.ID }}</span>
 </div>
